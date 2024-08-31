@@ -181,9 +181,8 @@
                         if (xhr.responseJSON.errors) {
                             // Display validation errors
                             $.each(xhr.responseJSON.errors, function(key, value) {
-
                                 $('#' + key).addClass('is-invalid');
-                                $('#error-' + key).text(value[0]);
+                                $('.d-' + key).text(value[0]);
                             });
                         }
                     }
