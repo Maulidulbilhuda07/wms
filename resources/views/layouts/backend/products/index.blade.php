@@ -36,9 +36,7 @@
                             <tbody>
                             </tbody>
                         </table>
-
                     </div>
-
                 </div>
             </div>
         </section>
@@ -106,6 +104,29 @@
         </div>
     </div>
 </div>
+<!-- Modal detail-->
+<div class="modal fade" id="modelDetail" tabindex="-1" role="dialog" aria-labelledby="modelDetailTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form id="productForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modelDetailTitle">Add Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                <form>
+        </div>
+    </div>
+</div>
 
 @push('scripts')
     <script>
@@ -160,7 +181,7 @@
                         if (xhr.responseJSON.errors) {
                             // Display validation errors
                             $.each(xhr.responseJSON.errors, function(key, value) {
-                                ALERT(value);
+
                                 $('#' + key).addClass('is-invalid');
                                 $('#error-' + key).text(value[0]);
                             });
@@ -180,7 +201,7 @@
             });
 
         }
-
+        // function get data semua product
         function getDataProduct() {
             $('#example').DataTable({
                 processing: true,
@@ -212,6 +233,7 @@
             });
 
         }
+
         // function untuk handle action edit,delete dan detail
         function f_action(element) {
             var id = $(element).data('id');
@@ -225,14 +247,14 @@
                 $('.btn-save').addClass('d-none');
                 $('.modal-title').html('Detail Product: <b>' + name + '</b>');
 
-                $('#modalProduct .modal-body').html(
+                $('#modelDetail .modal-body').html(
                     '<p>ID: ' + id + '</p>' +
                     '<p>Name: ' + name + '</p>' +
                     '<p>Price: ' + price + '</p>' +
                     '<p>Quantity: ' + quantity + '</p>' +
                     '<p>Description: ' + description + '</p>'
                 );
-                $('#modalProduct').modal('show');
+                $('#modelDetail').modal('show');
             } else if (action === 'edit') {
                 $('#product_id').val(id);
                 $('#name').val(name);

@@ -8,7 +8,7 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Products</li>
-            <li><a class="nav-link" href="{{'/'}}"><i class="far fa-square"></i>
+            <li><a class="nav-link" href="{{'/'}}"><i class="fas fa-th"></i>
                     <span>Products</span></a></li>
 
         </ul>
